@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Marselienna",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nThe page your viewing is the “index” page, or the landing page of your site. The site is just a quarto document. And you can put anything on it that could be in a quarto document.\nThere are also settings to get a list of site items you may want people to have easy access to. For example, a list of your blog posts, projects, etc.\nThere are different styles of landing pages. In this particular style, the index.qmd page is used as an about page. Instead of immediately showcasing your work, it showcases you! You can introduce yourself and include your contact information right by your image and description.\nYou can then also decide to have some content show up below the about portion as well."
+  },
+  {
+    "objectID": "posts/Demo Post 2/index.html",
+    "href": "posts/Demo Post 2/index.html",
+    "title": "Demo Post 2",
+    "section": "",
+    "text": "We are looking at arrests data by state. The data set has 50 rows (one for each state) and four variables.\n\nglimpse(USArrests)\n\nRows: 50\nColumns: 4\n$ Murder   &lt;dbl&gt; 13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.…\n$ Assault  &lt;int&gt; 236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 24…\n$ UrbanPop &lt;int&gt; 58, 48, 80, 50, 91, 78, 77, 72, 80, 60, 83, 54, 83, 65, 57, 6…\n$ Rape     &lt;dbl&gt; 21.2, 44.5, 31.0, 19.5, 40.6, 38.7, 11.1, 15.8, 31.9, 25.8, 2…\n\n\nEach of the variables are a numeric-continuous data type. We have arrests per 100,000 people for three violent crimes: assault, murder, and rape. We also have a column indicating the degree of urban population in that state. Before preceding with prediction, we note that tree-based techniques can be more unstable if the variables are too correlated with one another. We can also see if there are any extreme skews in the data.\n\nlibrary(GGally)\nggpairs(USArrests)\n\n\n\n\nWe do see some positive relationships and stronger correlations, but mayne not quite enough to get us in trouble.\nNow lets try and predict Murder using the other features.\n\ndt = rpart(Murder ~.,\n           data=USArrests)\nrpart.plot(dt)\n\n\n\n\nWe can calculate a kind of R-squared measure of accuracy by squaring the correlation between the actual Murder values with our predicted ones.\n\nUSArrests %&gt;%\n  mutate(predicted_murder = predict(dt, USArrests)) %&gt;%\n  select(Murder, predicted_murder) %&gt;%\n  cor() -&gt; corrmat\n\nrsq = corrmat[[\"Murder\", \"predicted_murder\"]]^2\nprint(paste(\"The r-square for our model is\", round(rsq,2), sep=\": \"))\n\n[1] \"The r-square for our model is: 0.78\""
+  },
+  {
+    "objectID": "posts/Demo Post 2/index.html#understanding-the-data",
+    "href": "posts/Demo Post 2/index.html#understanding-the-data",
+    "title": "Demo Post 2",
+    "section": "",
+    "text": "We are looking at arrests data by state. The data set has 50 rows (one for each state) and four variables.\n\nglimpse(USArrests)\n\nRows: 50\nColumns: 4\n$ Murder   &lt;dbl&gt; 13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.…\n$ Assault  &lt;int&gt; 236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 24…\n$ UrbanPop &lt;int&gt; 58, 48, 80, 50, 91, 78, 77, 72, 80, 60, 83, 54, 83, 65, 57, 6…\n$ Rape     &lt;dbl&gt; 21.2, 44.5, 31.0, 19.5, 40.6, 38.7, 11.1, 15.8, 31.9, 25.8, 2…\n\n\nEach of the variables are a numeric-continuous data type. We have arrests per 100,000 people for three violent crimes: assault, murder, and rape. We also have a column indicating the degree of urban population in that state. Before preceding with prediction, we note that tree-based techniques can be more unstable if the variables are too correlated with one another. We can also see if there are any extreme skews in the data.\n\nlibrary(GGally)\nggpairs(USArrests)\n\n\n\n\nWe do see some positive relationships and stronger correlations, but mayne not quite enough to get us in trouble.\nNow lets try and predict Murder using the other features.\n\ndt = rpart(Murder ~.,\n           data=USArrests)\nrpart.plot(dt)\n\n\n\n\nWe can calculate a kind of R-squared measure of accuracy by squaring the correlation between the actual Murder values with our predicted ones.\n\nUSArrests %&gt;%\n  mutate(predicted_murder = predict(dt, USArrests)) %&gt;%\n  select(Murder, predicted_murder) %&gt;%\n  cor() -&gt; corrmat\n\nrsq = corrmat[[\"Murder\", \"predicted_murder\"]]^2\nprint(paste(\"The r-square for our model is\", round(rsq,2), sep=\": \"))\n\n[1] \"The r-square for our model is: 0.78\""
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Blog Posts",
+    "section": "",
+    "text": "Demo Post 2\n\n\n\n\n\n\n\ndecision trees\n\n\nmachine learning\n\n\narrests\n\n\n\n\n\n\n\n\n\n\n\nSep 5, 2023\n\n\nJane Doe\n\n\n\n\n\n\n  \n\n\n\n\nDemo Post 1\n\n\n\n\n\n\n\nquarto\n\n\ncrisp-dm\n\n\nscatterplot\n\n\n\n\n\n\n\n\n\n\n\nSep 1, 2023\n\n\nJane Doe\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Projects are different than posts. Projects should be more expansive, impressive and generally more professional in nature compared to posts. Posts can be works in progress. Small ideas or things you did that you thought were interesting. Projects should really showcase your professional abilities. You don’t need to have too many, just make them good. And try to always have one “in the works” so that employers and collaborators can see that you’re driven.\n\n\n\n\n\n\n\n\n\nNo matching items"
+  }
+]
