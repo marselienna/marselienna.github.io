@@ -2,7 +2,7 @@
 title: "Marselienna" # change this to your name
 image: images/linkedin_profile_picture.jpg # change to your profile pic
 about:
-  template: broadside # templates: jolla, trestles, solana, marquee, broadside
+  template: trestles # templates: jolla, trestles, solana, marquee, broadside
   links: 
     - icon: envelope
       text: Contact Me
