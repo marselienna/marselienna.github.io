@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Marselienna"
+  title: "Marselienna:)"
   favicon: images/personal_logo.png
   navbar:
     left:
