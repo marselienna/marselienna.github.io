@@ -11,7 +11,7 @@ website:
         href: index.qmd # This is the main page. Don't delete!
       - text: Posts
         href: posts.qmd
-      - text: Projects
+      - text: Data Mining Final Project
         href: projects.qmd
       - text: Resume
         href: resume.qmd
