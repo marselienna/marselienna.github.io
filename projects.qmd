@@ -7,6 +7,16 @@ listing:
   categories: true
   sort-ui: false
   filter-ui: false
+
+  navbar:
+    left:
+      - text: Part One: creating APRIORI
+        href: Recipe-Association-Rules.html
+      - text: Part Two: Exploring
+        href: Part2flavorprofiles.html
+      - text: Part Three: Creating DataFrame
+        href: programsubsets.html
+      - text: Part Four
 ---
 
 Final Project: Recipe Data with APRIORI
