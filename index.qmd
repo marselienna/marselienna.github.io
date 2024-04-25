@@ -6,13 +6,9 @@ about:
   links: 
     - icon: envelope
       text: Contact Me
-      href: mailto:yourname@hamline.edu # change to your email
+      href: mailto:mvoneschen01@hamline.edu # change to your email
     - icon: linkedin
-      href: https://linkedin.com. # change to your linkedin address
-    - icon: github
-      href: https://github.com # change to your github address
-    - icon: twitter
-      href: https://twitter.com # change to your twitter address
+      href: https://www.linkedin.com/in/marselienna-von-eschen-a7188118b/ 
 ---
 
 QMBE 3740-1 Data Mining
